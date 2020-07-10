@@ -1,8 +1,12 @@
 .icons {
+  color: white;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 10px;
   font-size: 40px;
   padding: 20px;
   justify-items: center;
+}
+body {
+  padding:30px;
 }
