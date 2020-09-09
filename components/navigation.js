@@ -4,7 +4,7 @@ import TextTitle from './text-title';
 import { Twitter, Home, Explore, Notification, Messages, Bookmark, Lists, Profile, More } from './icons';
 import styles from './navigation.module.css'
 
-function Navigation ({ selectedKey }) {
+function Navigation({ flat = false, selectedKey }) {
   return <nav className={styles.nav}>
     <NavigationButton>
       <Twitter />
