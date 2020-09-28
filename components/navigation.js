@@ -1,54 +1,101 @@
 import React from 'react';
 import NavigationButton from './nav-button';
 import TextTitle from './text-title';
-import { Twitter, Home, Explore, Notification, Messages, Bookmark, Lists, Profile, More } from './icons';
+import * as Icon from './icons';
 import styles from './navigation.module.css'
 
-function Navigation({ flat = false, selectedKey }) {
+const MENU = [
+  {
+    key: 'twitter',
+    path: '/',
+    icon: <Icon.Twitter style={{ fontSize: 30 }} />,
+    iconSelected: <Icon.Twitter style={{ fontSize: 30 }} />,
+    title: '',
+    notify: 0
+  },
+  {
+    key: 'home',
+    path: '/',
+    icon: <Icon.Home />,
+    iconSelected: <Icon.HomeFill />,
+    title: 'Home',
+    notify: 0
+  },
+  {
+    key: 'explore',
+    path: '/explore',
+    icon: <Icon.Explore />,
+    iconSelected: <Icon.ExplorerFill />,
+    title: 'Explore',
+    notify: 0
+  },
+  {
+    key: 'notifications',
+    path: '/notifications',
+    icon: <Icon.Notification />,
+    iconSelected: <Icon.NotificationFill />,
+    title: 'Notifications',
+    notify: 17
+  },
+  {
+    key: 'messages',
+    path: '/messages',
+    icon: <Icon.Messages />,
+    iconSelected: <Icon.MessagesFill />,
+    title: 'Messages',
+    notify: 0
+  },
+  {
+    key: 'bookmarks',
+    path: '/bookmarks',
+    icon: <Icon.Bookmark />,
+    iconSelected: <Icon.BookmarkFill />,
+    title: 'Bookmarks',
+    notify: 0
+  },
+  {
+    key: 'lists',
+    path: '/lists',
+    icon: <Icon.Lists />,
+    iconSelected: <Icon.ListsFill />,
+    title: 'Lists',
+    notify: 0
+  },
+  {
+    key: 'profile',
+    path: '/profile',
+    icon: <Icon.Profile />,
+    iconSelected: <Icon.ProfileFill />,
+    title: 'Profile',
+    notify: 0
+  },
+  {
+    key: 'more',
+    path: '/more',
+    icon: <Icon.More />,
+    iconSelected: <Icon.More />,
+    title: 'More',
+    notify: 0
+  }
+]
+
+function Navigation({ flat = false, selectedKey = "home" }) {
   return <nav className={styles.nav}>
-    <NavigationButton>
-      <Twitter />
-    </NavigationButton>
-
-    <NavigationButton selected={selectedKey === 'home'}>
-      <Home />
-      <TextTitle>Home</TextTitle>
-    </NavigationButton>
-
-    <NavigationButton selected={selectedKey === 'explore'}>
-      <Explore />
-      <TextTitle>Explore</TextTitle>
-    </NavigationButton>
-
-    <NavigationButton notify={17} selected={selectedKey === 'notification'}>
-      <Notification />
-      <TextTitle>Notification</TextTitle>
-    </NavigationButton>
-
-    <NavigationButton selected={selectedKey === 'messages'}>
-      <Messages />
-      <TextTitle>Messages</TextTitle>
-    </NavigationButton>
-
-    <NavigationButton selected={selectedKey === 'bookmark'}>
-      <Bookmark />
-      <TextTitle>Bookmark</TextTitle>
-    </NavigationButton>
-
-    <NavigationButton selected={selectedKey === 'list'}>
-      <Lists />
-      <TextTitle>List</TextTitle>
-    </NavigationButton>
-
-    <NavigationButton selected={selectedKey === 'profile'}>
-      <Profile />
-      <TextTitle>Profile</TextTitle>
-    </NavigationButton>
-
-    <NavigationButton selected={selectedKey === 'more'}>
-      <More />
-      <TextTitle>More</TextTitle>
-    </NavigationButton>
+    {
+      MENU.map(menu => {
+        const showTitle = !flat && menu.title.length > 0
+        const selected = selectedKey === menu.key
+        return (
+          <NavigationButton
+            key={menu.key}
+            notify={menu.notify}
+            selected={selectedKey === menu.key}>
+            {selected ? menu.iconSelected : menu.icon}
+            {showTitle && <TextTitle>{menu.title}</TextTitle>}
+          </NavigationButton>
+        )
+      })
+    }
   </nav>
 }
 
