@@ -24,18 +24,18 @@
   "homepage": "https://github.com/ademyalcin27/react-twitter#readme",
   "dependencies": {
     "classnames": "^2.2.6",
-    "next": "^9.4.4",
+    "next": "^13.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
-    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-knobs": "^6.0.21",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19",
-    "@svgr/cli": "^5.4.0",
+    "@storybook/react": "^6.5.15",
+    "@svgr/cli": "^6.5.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
     "postcss-custom-media": "^7.0.8",
