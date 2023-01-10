@@ -1,3 +1,4 @@
 ### next file
 .next
 node_modules
+.DS_Store
